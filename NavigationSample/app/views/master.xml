@@ -1,0 +1,5 @@
+<Alloy>
+	<Window>
+		<Button title="Go Detail" onClick="goDetail" />
+	</Window>
+</Alloy>

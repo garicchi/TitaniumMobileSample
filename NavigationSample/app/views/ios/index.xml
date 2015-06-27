@@ -1,0 +1,5 @@
+<Alloy>
+	<NavigationWindow id="navWindow" platform="ios">
+		<Require id="master" src="master" />
+	</NavigationWindow>	
+</Alloy>
