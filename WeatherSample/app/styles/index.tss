@@ -1,0 +1,9 @@
+"Window": {
+	backgroundColor:"white"
+}
+
+'#cityId':{
+	width:'70%',
+	height:'40',
+	borderColor:'#cccccc'
+}

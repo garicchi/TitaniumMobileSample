@@ -1,0 +1,8 @@
+<Alloy>
+	<Window>
+		<View layout="vertical">
+			<ImageView id="image" />
+			<Button id="button" title="Please Click!" onClick="showImage" />
+		</View>
+	</Window>
+</Alloy>

@@ -1,0 +1,9 @@
+<Alloy>
+	<Window onOpen="windowOpen">
+		<View layout="vertical" top="10%">
+			<Label text="cityId" />
+			<TextField id="cityId"></TextField>
+			<Button id="getWeather" title="Get Weather" onClick="getWeather" />
+		</View>
+	</Window>
+</Alloy>
