@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 0.10.34
+
+dependencies:
+  pre:
+    - npm install -g alloy
+    - npm install
+
+test:
+  pre:
+    - gulp jshint
+    - gulp jsbeautifier
+    - alloy compile --config platform=ios
+    - alloy compile --config platform=android

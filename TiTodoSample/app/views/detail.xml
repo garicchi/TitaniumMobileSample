@@ -1,0 +1,10 @@
+<Alloy>
+	<Window id="detailWindow">
+		<View layout="vertical">
+			<Label id="title" />
+			<Label id="detail" />
+			<Label id="deadLine" />
+			<Button title="Back Master" onClick="backMaster" />
+		</View>
+	</Window>
+</Alloy>
