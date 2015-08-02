@@ -2,9 +2,9 @@
 	backgroundColor:'#fff'
 }
 
-'#todoCheck':{
+'.todoCheck':{
 	width:30,
 	height:30,
 	borderColor:'#000000',
-	backgroundColor:'#FF0000'
+	backgroundColor:'#cc0000'
 }

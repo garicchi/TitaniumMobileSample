@@ -8,7 +8,15 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function onTodoClick(e) {
+    function checkTodo(e) {
+        var index = e.itemIndex;
+        var listItem = $.todoSection.items[index];
+        var item = itemList[index];
+        item.onCompleted = !item.onCompleted;
+        listItem.todoCheck.backgroundColor = getCheckColor(item.onCompleted);
+        $.todoSection.updateItemAt(index, listItem);
+    }
+    function clickTodo(e) {
         $.trigger("detail", itemList[e.itemIndex]);
     }
     function windowOpen() {
@@ -23,10 +31,18 @@ function Controller() {
                 },
                 deadLine: {
                     text: item.deadLine.toString()
+                },
+                todoCheck: {
+                    backgroundColor: getCheckColor(item.onCompleted)
                 }
             });
         });
         $.todoSection.setItems(listItems);
+    }
+    function getCheckColor(onCompleted) {
+        var backColor = "";
+        backColor = onCompleted ? "#cc0000" : "#fff";
+        return backColor;
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "master";
@@ -67,51 +83,59 @@ function Controller() {
         type: "Ti.UI.View",
         childTemplates: function() {
             var __alloyId12 = [];
-            var __alloyId13 = {
+            var __alloyId14 = {
                 type: "Ti.UI.View",
+                bindId: "todoCheck",
                 properties: {
                     width: 30,
                     height: 30,
                     borderColor: "#000000",
-                    backgroundColor: "#FF0000"
+                    backgroundColor: "#cc0000",
+                    bindId: "todoCheck"
+                },
+                events: {
+                    click: checkTodo
                 }
             };
-            __alloyId12.push(__alloyId13);
-            var __alloyId15 = {
+            __alloyId12.push(__alloyId14);
+            var __alloyId16 = {
                 type: "Ti.UI.View",
                 childTemplates: function() {
-                    var __alloyId16 = [];
-                    var __alloyId18 = {
+                    var __alloyId17 = [];
+                    var __alloyId19 = {
                         type: "Ti.UI.Label",
                         bindId: "title",
                         properties: {
                             bindId: "title"
                         }
                     };
-                    __alloyId16.push(__alloyId18);
-                    var __alloyId20 = {
+                    __alloyId17.push(__alloyId19);
+                    var __alloyId21 = {
                         type: "Ti.UI.Label",
                         bindId: "detail",
                         properties: {
                             bindId: "detail"
                         }
                     };
-                    __alloyId16.push(__alloyId20);
-                    var __alloyId22 = {
+                    __alloyId17.push(__alloyId21);
+                    var __alloyId23 = {
                         type: "Ti.UI.Label",
                         bindId: "deadLine",
                         properties: {
                             bindId: "deadLine"
                         }
                     };
-                    __alloyId16.push(__alloyId22);
-                    return __alloyId16;
+                    __alloyId17.push(__alloyId23);
+                    return __alloyId17;
                 }(),
                 properties: {
                     layout: "vertical"
+                },
+                events: {
+                    click: clickTodo
                 }
             };
-            __alloyId12.push(__alloyId15);
+            __alloyId12.push(__alloyId16);
             return __alloyId12;
         }(),
         properties: {
@@ -130,38 +154,40 @@ function Controller() {
     $.__views.todoSection = Ti.UI.createListSection({
         id: "todoSection"
     });
-    var __alloyId24 = [];
-    __alloyId24.push($.__views.todoSection);
+    var __alloyId25 = [];
+    __alloyId25.push($.__views.todoSection);
     $.__views.todoList = Ti.UI.createListView({
-        sections: __alloyId24,
+        sections: __alloyId25,
         templates: __alloyId6,
         pullView: $.__views.__alloyId4,
         id: "todoList",
         defaultItemTemplate: "todoTemp"
     });
     $.__views.master.add($.__views.todoList);
-    onTodoClick ? $.__views.todoList.addEventListener("itemclick", onTodoClick) : __defers["$.__views.todoList!itemclick!onTodoClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     var itemList = [ {
         title: "宿題1",
         detail: "期限日までに指定のレポートボックスへ",
-        deadLine: Date(2015, 8, 5)
+        deadLine: Date(2015, 8, 5),
+        onCompleted: false
     }, {
         title: "宿題2",
         detail: "期限日までに指定のレポートボックスへ",
-        deadLine: Date(2015, 9, 5)
+        deadLine: Date(2015, 9, 5),
+        onCompleted: false
     }, {
         title: "レポート1",
         detail: "期限日までに指定のレポートボックスへ",
-        deadLine: Date(2015, 8, 22)
+        deadLine: Date(2015, 8, 22),
+        onCompleted: false
     }, {
         title: "レポート2",
         detail: "期限日までに指定のレポートボックスへ",
-        deadLine: Date(2015, 10, 1)
+        deadLine: Date(2015, 10, 1),
+        onCompleted: false
     } ];
     __defers["$.__views.master!open!windowOpen"] && $.__views.master.addEventListener("open", windowOpen);
-    __defers["$.__views.todoList!itemclick!onTodoClick"] && $.__views.todoList.addEventListener("itemclick", onTodoClick);
     _.extend($, exports);
 }
 
