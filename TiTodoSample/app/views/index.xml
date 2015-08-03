@@ -1,7 +1,39 @@
 <Alloy>
 	<NavigationWindow id="navWindow" platform="ios">
-		<Require id="master" src="master" />
+		<Window onOpen="windowOpen">
+			<ListView id="todoList" defaultItemTemplate="todoTemp">
+				<Templates>
+					<ItemTemplate name="todoTemp" height="100">
+						<View layout="horizontal">
+							<View bindId="todoCheck" class="todoCheck" onClick="checkTodo"></View>
+							<View layout="vertical" onClick="clickTodo">
+								<Label bindId="title" />
+								<Label bindId="detail" />
+								<!--<Label bindId="deadLine" />-->
+							</View>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<ListSection id="todoSection"></ListSection>
+			</ListView>
+			<Button id="addButton" title="Add" onClick="addTodo" />
+		</Window>
 	</NavigationWindow>
-	
-	<Require id="master" src="master" platform="android" />
+	<Window onOpen="windowOpen" platform="android">
+		<ListView id="todoList" defaultItemTemplate="todoTemp">
+			<Templates>
+				<ItemTemplate name="todoTemp" height="100">
+					<View layout="horizontal">
+						<View bindId="todoCheck" class="todoCheck" onClick="checkTodo"></View>
+						<View layout="vertical" onClick="clickTodo">
+							<Label bindId="title" />
+							<Label bindId="detail" />
+							<!--<Label bindId="deadLine" />-->
+						</View>
+					</View>
+				</ItemTemplate>
+			</Templates>
+			<ListSection id="todoSection"></ListSection>
+		</ListView>
+	</Window>
 </Alloy>

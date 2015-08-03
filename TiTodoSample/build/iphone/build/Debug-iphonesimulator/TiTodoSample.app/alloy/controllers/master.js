@@ -1,1 +1,0 @@
-/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/Resources/iphone/alloy/controllers/master.js

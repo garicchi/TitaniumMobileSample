@@ -3,7 +3,9 @@
 		<View layout="vertical">
 			<Label id="title" />
 			<Label id="detail" />
+			<Label text="期限日" />
 			<Label id="deadLine" />
+			<Button title="Delete" onClick="deleteTodo" />
 			<Button title="Back Master" onClick="backMaster" />
 		</View>
 	</Window>

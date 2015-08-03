@@ -1,0 +1,17 @@
+<Alloy>
+	<Window class="container">
+		<View layout="vertical">
+			<Label text="タイトル" />
+			<TextField id="title"></TextField>
+			<Label text="詳細" />
+			<TextArea id="title"></TextArea>
+			<Label text="期限日" />
+			<Picker id="picker"
+          type="Ti.UI.PICKER_TYPE_DATE"
+          minDate="2014,4,1"
+          maxDate="2016,4,1"
+          value="2014-04-15T12:00:00">
+        </Picker>
+		</View>
+	</Window>
+</Alloy>

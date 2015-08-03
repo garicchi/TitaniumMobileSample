@@ -1,0 +1,15 @@
+'Window':{
+	backgroundColor:'#fff'
+}
+
+'.todoCheck':{
+	width:30,
+	height:30,
+	borderColor:'#000000',
+	backgroundColor:'#cc0000'
+}
+
+'#addButton':{
+	right:'5%',
+	bottom:'10%'
+}

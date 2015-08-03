@@ -8,4 +8,10 @@ function doRender(e){
 	$.deadLine.text = e.deadLine;
 }
 
+function deleteTodo(e){
+	$.trigger('deleteTodo');
+	$.detailWindow.close();
+}
+
+
 $.on('render',doRender);
