@@ -38,7 +38,14 @@ function clickTodo(e) {
 	} else {
 		detail.getView().open();
 	}
-	detail.trigger('render', itemList[e.itemIndex]);
+	var clickedItem = $.todoSection.items[e.itemIndex];
+	var todoItem = {
+		title:clickedItem.title.text,
+		detail:clickedItem.detail.text,
+		deadLine:Date(clickedItem.deadLine),
+		onCompleted:clickedItem.onCompleted
+	};
+	detail.trigger('render',todoItem);
 	detail.on('deleteTodo',function(){
 		$.todoSection.deleteItemsAt(e.itemIndex,1);
 	});
@@ -46,6 +53,23 @@ function clickTodo(e) {
 
 function addTodo(e){
 	var add = Alloy.createController('add');
+	add.on('addTodo',function(e){
+		var newItem = {
+			title : {
+				text : e.title
+			},
+			detail : {
+				text : e.detail
+			},
+			deadLine : {
+				text : e.deadLine.toString()
+			},
+			todoCheck : {
+				backgroundColor : getCheckColor(e.onCompleted)
+			}
+		};
+		$.todoSection.insertItemsAt(0,[newItem]);
+	});
 	if (OS_IOS) {
 		$.navWindow.openWindow(add.getView());
 	}else {

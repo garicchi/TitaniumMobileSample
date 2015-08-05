@@ -19,13 +19,37 @@ function Controller() {
     function clickTodo(e) {
         var detail = Alloy.createController("detail");
         $.navWindow.openWindow(detail.getView());
-        detail.trigger("render", itemList[e.itemIndex]);
+        var clickedItem = $.todoSection.items[e.itemIndex];
+        var todoItem = {
+            title: clickedItem.title.text,
+            detail: clickedItem.detail.text,
+            deadLine: Date(clickedItem.deadLine),
+            onCompleted: clickedItem.onCompleted
+        };
+        detail.trigger("render", todoItem);
         detail.on("deleteTodo", function() {
             $.todoSection.deleteItemsAt(e.itemIndex, 1);
         });
     }
     function addTodo() {
         var add = Alloy.createController("add");
+        add.on("addTodo", function(e) {
+            var newItem = {
+                title: {
+                    text: e.title
+                },
+                detail: {
+                    text: e.detail
+                },
+                deadLine: {
+                    text: e.deadLine.toString()
+                },
+                todoCheck: {
+                    backgroundColor: getCheckColor(e.onCompleted)
+                }
+            };
+            $.todoSection.insertItemsAt(0, [ newItem ]);
+        });
         $.navWindow.openWindow(add.getView());
     }
     function windowOpen() {
@@ -70,18 +94,18 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.__alloyId8 = Ti.UI.createWindow({
+    $.__views.__alloyId9 = Ti.UI.createWindow({
         backgroundColor: "#fff",
-        id: "__alloyId8"
+        id: "__alloyId9"
     });
-    windowOpen ? $.__views.__alloyId8.addEventListener("open", windowOpen) : __defers["$.__views.__alloyId8!open!windowOpen"] = true;
-    var __alloyId9 = {};
-    var __alloyId12 = [];
-    var __alloyId14 = {
+    windowOpen ? $.__views.__alloyId9.addEventListener("open", windowOpen) : __defers["$.__views.__alloyId9!open!windowOpen"] = true;
+    var __alloyId10 = {};
+    var __alloyId13 = [];
+    var __alloyId15 = {
         type: "Ti.UI.View",
         childTemplates: function() {
-            var __alloyId15 = [];
-            var __alloyId17 = {
+            var __alloyId16 = [];
+            var __alloyId18 = {
                 type: "Ti.UI.View",
                 bindId: "todoCheck",
                 properties: {
@@ -95,28 +119,28 @@ function Controller() {
                     click: checkTodo
                 }
             };
-            __alloyId15.push(__alloyId17);
-            var __alloyId19 = {
+            __alloyId16.push(__alloyId18);
+            var __alloyId20 = {
                 type: "Ti.UI.View",
                 childTemplates: function() {
-                    var __alloyId20 = [];
-                    var __alloyId22 = {
+                    var __alloyId21 = [];
+                    var __alloyId23 = {
                         type: "Ti.UI.Label",
                         bindId: "title",
                         properties: {
                             bindId: "title"
                         }
                     };
-                    __alloyId20.push(__alloyId22);
-                    var __alloyId24 = {
+                    __alloyId21.push(__alloyId23);
+                    var __alloyId25 = {
                         type: "Ti.UI.Label",
                         bindId: "detail",
                         properties: {
                             bindId: "detail"
                         }
                     };
-                    __alloyId20.push(__alloyId24);
-                    return __alloyId20;
+                    __alloyId21.push(__alloyId25);
+                    return __alloyId21;
                 }(),
                 properties: {
                     layout: "vertical"
@@ -125,44 +149,44 @@ function Controller() {
                     click: clickTodo
                 }
             };
-            __alloyId15.push(__alloyId19);
-            return __alloyId15;
+            __alloyId16.push(__alloyId20);
+            return __alloyId16;
         }(),
         properties: {
             layout: "horizontal"
         }
     };
-    __alloyId12.push(__alloyId14);
-    var __alloyId11 = {
+    __alloyId13.push(__alloyId15);
+    var __alloyId12 = {
         properties: {
             name: "todoTemp",
             height: "100"
         },
-        childTemplates: __alloyId12
+        childTemplates: __alloyId13
     };
-    __alloyId9["todoTemp"] = __alloyId11;
+    __alloyId10["todoTemp"] = __alloyId12;
     $.__views.todoSection = Ti.UI.createListSection({
         id: "todoSection"
     });
-    var __alloyId26 = [];
-    __alloyId26.push($.__views.todoSection);
+    var __alloyId27 = [];
+    __alloyId27.push($.__views.todoSection);
     $.__views.todoList = Ti.UI.createListView({
-        sections: __alloyId26,
-        templates: __alloyId9,
+        sections: __alloyId27,
+        templates: __alloyId10,
         id: "todoList",
         defaultItemTemplate: "todoTemp"
     });
-    $.__views.__alloyId8.add($.__views.todoList);
+    $.__views.__alloyId9.add($.__views.todoList);
     $.__views.addButton = Ti.UI.createButton({
         right: "5%",
         bottom: "10%",
         id: "addButton",
         title: "Add"
     });
-    $.__views.__alloyId8.add($.__views.addButton);
+    $.__views.__alloyId9.add($.__views.addButton);
     addTodo ? $.__views.addButton.addEventListener("click", addTodo) : __defers["$.__views.addButton!click!addTodo"] = true;
     $.__views.navWindow = Ti.UI.iOS.createNavigationWindow({
-        window: $.__views.__alloyId8,
+        window: $.__views.__alloyId9,
         id: "navWindow"
     });
     $.__views.navWindow && $.addTopLevelView($.__views.navWindow);
@@ -190,7 +214,7 @@ function Controller() {
         onCompleted: false
     } ];
     $.navWindow.open();
-    __defers["$.__views.__alloyId8!open!windowOpen"] && $.__views.__alloyId8.addEventListener("open", windowOpen);
+    __defers["$.__views.__alloyId9!open!windowOpen"] && $.__views.__alloyId9.addEventListener("open", windowOpen);
     __defers["$.__views.addButton!click!addTodo"] && $.__views.addButton.addEventListener("click", addTodo);
     _.extend($, exports);
 }

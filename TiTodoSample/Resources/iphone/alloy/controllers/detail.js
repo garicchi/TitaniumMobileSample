@@ -42,45 +42,45 @@ function Controller() {
         id: "detailWindow"
     });
     $.__views.detailWindow && $.addTopLevelView($.__views.detailWindow);
-    $.__views.__alloyId4 = Ti.UI.createView({
+    $.__views.__alloyId5 = Ti.UI.createView({
         layout: "vertical",
-        id: "__alloyId4"
+        id: "__alloyId5"
     });
-    $.__views.detailWindow.add($.__views.__alloyId4);
+    $.__views.detailWindow.add($.__views.__alloyId5);
     $.__views.title = Ti.UI.createLabel({
         id: "title"
     });
-    $.__views.__alloyId4.add($.__views.title);
+    $.__views.__alloyId5.add($.__views.title);
     $.__views.detail = Ti.UI.createLabel({
         id: "detail"
     });
-    $.__views.__alloyId4.add($.__views.detail);
-    $.__views.__alloyId5 = Ti.UI.createLabel({
+    $.__views.__alloyId5.add($.__views.detail);
+    $.__views.__alloyId6 = Ti.UI.createLabel({
         text: "期限日",
-        id: "__alloyId5"
+        id: "__alloyId6"
     });
-    $.__views.__alloyId4.add($.__views.__alloyId5);
+    $.__views.__alloyId5.add($.__views.__alloyId6);
     $.__views.deadLine = Ti.UI.createLabel({
         id: "deadLine"
     });
-    $.__views.__alloyId4.add($.__views.deadLine);
-    $.__views.__alloyId6 = Ti.UI.createButton({
-        title: "Delete",
-        id: "__alloyId6"
-    });
-    $.__views.__alloyId4.add($.__views.__alloyId6);
-    deleteTodo ? $.__views.__alloyId6.addEventListener("click", deleteTodo) : __defers["$.__views.__alloyId6!click!deleteTodo"] = true;
+    $.__views.__alloyId5.add($.__views.deadLine);
     $.__views.__alloyId7 = Ti.UI.createButton({
-        title: "Back Master",
+        title: "Delete",
         id: "__alloyId7"
     });
-    $.__views.__alloyId4.add($.__views.__alloyId7);
-    backMaster ? $.__views.__alloyId7.addEventListener("click", backMaster) : __defers["$.__views.__alloyId7!click!backMaster"] = true;
+    $.__views.__alloyId5.add($.__views.__alloyId7);
+    deleteTodo ? $.__views.__alloyId7.addEventListener("click", deleteTodo) : __defers["$.__views.__alloyId7!click!deleteTodo"] = true;
+    $.__views.__alloyId8 = Ti.UI.createButton({
+        title: "Back Master",
+        id: "__alloyId8"
+    });
+    $.__views.__alloyId5.add($.__views.__alloyId8);
+    backMaster ? $.__views.__alloyId8.addEventListener("click", backMaster) : __defers["$.__views.__alloyId8!click!backMaster"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.on("render", doRender);
-    __defers["$.__views.__alloyId6!click!deleteTodo"] && $.__views.__alloyId6.addEventListener("click", deleteTodo);
-    __defers["$.__views.__alloyId7!click!backMaster"] && $.__views.__alloyId7.addEventListener("click", backMaster);
+    __defers["$.__views.__alloyId7!click!deleteTodo"] && $.__views.__alloyId7.addEventListener("click", deleteTodo);
+    __defers["$.__views.__alloyId8!click!backMaster"] && $.__views.__alloyId8.addEventListener("click", backMaster);
     _.extend($, exports);
 }
 

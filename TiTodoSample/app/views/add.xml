@@ -1,10 +1,10 @@
 <Alloy>
-	<Window class="container">
+	<Window id="container">
 		<View layout="vertical">
 			<Label text="タイトル" />
 			<TextField id="title"></TextField>
 			<Label text="詳細" />
-			<TextArea id="title"></TextArea>
+			<TextArea id="detail"></TextArea>
 			<Label text="期限日" />
 			<Picker id="picker"
           type="Ti.UI.PICKER_TYPE_DATE"
@@ -12,6 +12,7 @@
           maxDate="2016,4,1"
           value="2014-04-15T12:00:00">
         </Picker>
+        <Button title="追加" onClick="addTodo" />
 		</View>
 	</Window>
 </Alloy>

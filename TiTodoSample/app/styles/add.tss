@@ -1,4 +1,15 @@
 
-".container" : {
+'#container' : {
   backgroundColor:'white'
+}
+
+'TextField':{
+	borderColor:'black',
+	width:'70%'
+}
+
+'TextArea':{
+	width:'70%',
+	height:'30%',
+	borderColor:'black'
 }
