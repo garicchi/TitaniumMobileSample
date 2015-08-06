@@ -1,0 +1,7 @@
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/android/support/v7/appcompat/R.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/com/garicchi/titodosample/ApplicationStylesheet.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/com/garicchi/titodosample/R.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/com/garicchi/titodosample/TitodosampleActivity.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/com/garicchi/titodosample/TitodosampleAppInfo.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/com/garicchi/titodosample/TitodosampleApplication.java"
+"/Users/garicchi/Projects/Repository/TitaniumMobileSample/TiTodoSample/build/android/gen/ti/modules/titanium/ui/R.java"

@@ -73,7 +73,7 @@ function Controller() {
     });
     $.__views.__alloyId0.add($.__views.__alloyId3);
     $.__views.picker = Ti.UI.createPicker({
-        value: new Date("Tue Apr 15 2014 12:00:00 GMT+0900 (JST)"),
+        value: new Date("Tue Apr 15 2014 00:00:00 GMT+0900 (JST)"),
         minDate: new Date("Tue Apr 01 2014 00:00:00 GMT+0900 (JST)"),
         maxDate: new Date("Fri Apr 01 2016 00:00:00 GMT+0900 (JST)"),
         format24: false,
