@@ -5,7 +5,9 @@ function backMaster(e){
 function doRender(e){
 	$.title.text = e.title;
 	$.detail.text = e.detail;
-	$.deadLine.text = e.deadLine;
+	
+	var date = new Date(e.deadLine);
+	$.deadLine.text = date.toDateString();
 }
 
 function deleteTodo(e){

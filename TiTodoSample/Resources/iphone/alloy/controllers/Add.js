@@ -44,34 +44,52 @@ function Controller() {
         id: "__alloyId0"
     });
     $.__views.container.add($.__views.__alloyId0);
+    $.__views.viewTitle = Ti.UI.createView({
+        height: "20%",
+        layout: "vertical",
+        id: "viewTitle"
+    });
+    $.__views.__alloyId0.add($.__views.viewTitle);
     $.__views.__alloyId1 = Ti.UI.createLabel({
         text: "タイトル",
         id: "__alloyId1"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId1);
+    $.__views.viewTitle.add($.__views.__alloyId1);
     $.__views.title = Ti.UI.createTextField({
         borderColor: "black",
         width: "70%",
         id: "title"
     });
-    $.__views.__alloyId0.add($.__views.title);
+    $.__views.viewTitle.add($.__views.title);
+    $.__views.viewDetail = Ti.UI.createView({
+        height: "20%",
+        layout: "vertical",
+        id: "viewDetail"
+    });
+    $.__views.__alloyId0.add($.__views.viewDetail);
     $.__views.__alloyId2 = Ti.UI.createLabel({
         text: "詳細",
         id: "__alloyId2"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId2);
+    $.__views.viewDetail.add($.__views.__alloyId2);
     $.__views.detail = Ti.UI.createTextArea({
         width: "70%",
-        height: "30%",
+        height: "50%",
         borderColor: "black",
         id: "detail"
     });
-    $.__views.__alloyId0.add($.__views.detail);
+    $.__views.viewDetail.add($.__views.detail);
+    $.__views.viewDeadline = Ti.UI.createView({
+        height: "40%",
+        layout: "vertical",
+        id: "viewDeadline"
+    });
+    $.__views.__alloyId0.add($.__views.viewDeadline);
     $.__views.__alloyId3 = Ti.UI.createLabel({
         text: "期限日",
         id: "__alloyId3"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId3);
+    $.__views.viewDeadline.add($.__views.__alloyId3);
     $.__views.picker = Ti.UI.createPicker({
         value: new Date("Tue Apr 15 2014 00:00:00 GMT+0900 (JST)"),
         minDate: new Date("Tue Apr 01 2014 00:00:00 GMT+0900 (JST)"),
@@ -81,12 +99,18 @@ function Controller() {
         id: "picker",
         type: Ti.UI.PICKER_TYPE_DATE
     });
-    $.__views.__alloyId0.add($.__views.picker);
+    $.__views.viewDeadline.add($.__views.picker);
+    $.__views.viewAdd = Ti.UI.createView({
+        height: "20%",
+        layout: "vertical",
+        id: "viewAdd"
+    });
+    $.__views.__alloyId0.add($.__views.viewAdd);
     $.__views.__alloyId4 = Ti.UI.createButton({
         title: "追加",
         id: "__alloyId4"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId4);
+    $.__views.viewAdd.add($.__views.__alloyId4);
     addTodo ? $.__views.__alloyId4.addEventListener("click", addTodo) : __defers["$.__views.__alloyId4!click!addTodo"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);

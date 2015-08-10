@@ -3,7 +3,7 @@
 		<Window onOpen="windowOpen">
 			<ListView id="todoList" defaultItemTemplate="todoTemp">
 				<Templates>
-					<ItemTemplate name="todoTemp" height="100">
+					<ItemTemplate name="todoTemp" id="listTemp">
 						<View layout="horizontal">
 							<View bindId="todoCheck" class="todoCheck" onClick="checkTodo"></View>
 							<View layout="vertical" onClick="clickTodo">
@@ -16,7 +16,7 @@
 				</Templates>
 				<ListSection id="todoSection"></ListSection>
 			</ListView>
-			<Button id="addButton" title="Add" onClick="addTodo" />
+			<Button id="addButton" onClick="addTodo" />
 		</Window>
 	</NavigationWindow>
 	<Window onOpen="windowOpen" platform="android">

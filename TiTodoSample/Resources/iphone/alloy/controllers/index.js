@@ -129,12 +129,12 @@ function Controller() {
     });
     windowOpen ? $.__views.__alloyId9.addEventListener("open", windowOpen) : __defers["$.__views.__alloyId9!open!windowOpen"] = true;
     var __alloyId10 = {};
-    var __alloyId13 = [];
-    var __alloyId15 = {
+    var __alloyId12 = [];
+    var __alloyId14 = {
         type: "Ti.UI.View",
         childTemplates: function() {
-            var __alloyId16 = [];
-            var __alloyId18 = {
+            var __alloyId15 = [];
+            var __alloyId17 = {
                 type: "Ti.UI.View",
                 bindId: "todoCheck",
                 properties: {
@@ -148,28 +148,28 @@ function Controller() {
                     click: checkTodo
                 }
             };
-            __alloyId16.push(__alloyId18);
-            var __alloyId20 = {
+            __alloyId15.push(__alloyId17);
+            var __alloyId19 = {
                 type: "Ti.UI.View",
                 childTemplates: function() {
-                    var __alloyId21 = [];
-                    var __alloyId23 = {
+                    var __alloyId20 = [];
+                    var __alloyId22 = {
                         type: "Ti.UI.Label",
                         bindId: "title",
                         properties: {
                             bindId: "title"
                         }
                     };
-                    __alloyId21.push(__alloyId23);
-                    var __alloyId25 = {
+                    __alloyId20.push(__alloyId22);
+                    var __alloyId24 = {
                         type: "Ti.UI.Label",
                         bindId: "detail",
                         properties: {
                             bindId: "detail"
                         }
                     };
-                    __alloyId21.push(__alloyId25);
-                    return __alloyId21;
+                    __alloyId20.push(__alloyId24);
+                    return __alloyId20;
                 }(),
                 properties: {
                     layout: "vertical"
@@ -178,29 +178,29 @@ function Controller() {
                     click: clickTodo
                 }
             };
-            __alloyId16.push(__alloyId20);
-            return __alloyId16;
+            __alloyId15.push(__alloyId19);
+            return __alloyId15;
         }(),
         properties: {
             layout: "horizontal"
         }
     };
-    __alloyId13.push(__alloyId15);
-    var __alloyId12 = {
+    __alloyId12.push(__alloyId14);
+    var __alloyId11 = {
         properties: {
-            name: "todoTemp",
-            height: "100"
+            height: 80,
+            name: "todoTemp"
         },
-        childTemplates: __alloyId13
+        childTemplates: __alloyId12
     };
-    __alloyId10["todoTemp"] = __alloyId12;
+    __alloyId10["todoTemp"] = __alloyId11;
     $.__views.todoSection = Ti.UI.createListSection({
         id: "todoSection"
     });
-    var __alloyId27 = [];
-    __alloyId27.push($.__views.todoSection);
+    var __alloyId26 = [];
+    __alloyId26.push($.__views.todoSection);
     $.__views.todoList = Ti.UI.createListView({
-        sections: __alloyId27,
+        sections: __alloyId26,
         templates: __alloyId10,
         id: "todoList",
         defaultItemTemplate: "todoTemp"
@@ -209,8 +209,10 @@ function Controller() {
     $.__views.addButton = Ti.UI.createButton({
         right: "5%",
         bottom: "10%",
-        id: "addButton",
-        title: "Add"
+        height: 50,
+        width: 50,
+        backgroundImage: "/pluse.png",
+        id: "addButton"
     });
     $.__views.__alloyId9.add($.__views.addButton);
     addTodo ? $.__views.addButton.addEventListener("click", addTodo) : __defers["$.__views.addButton!click!addTodo"] = true;

@@ -1,18 +1,25 @@
 <Alloy>
 	<Window id="container">
 		<View layout="vertical">
-			<Label text="タイトル" />
-			<TextField id="title"></TextField>
-			<Label text="詳細" />
-			<TextArea id="detail"></TextArea>
-			<Label text="期限日" />
-			<Picker id="picker"
-          type="Ti.UI.PICKER_TYPE_DATE"
-          minDate="2014,4,1"
-          maxDate="2016,4,1"
-          value="2014,4,15">
-        </Picker>
-        <Button title="追加" onClick="addTodo" />
+			<View layout="vertical" id="viewTitle">
+				<Label text="タイトル" />
+				<TextField id="title"></TextField>
+			</View>
+			<View layout="vertical" id="viewDetail">
+				<Label text="詳細" />
+				<TextArea id="detail"></TextArea>
+			</View>
+			<View layout="vertical" id="viewDeadline">
+				<Label text="期限日" />
+				<Picker id="picker"
+				type="Ti.UI.PICKER_TYPE_DATE"
+				minDate="2014,4,1"
+				maxDate="2016,4,1"
+				value="2014,4,15"></Picker>
+			</View>
+			<View layout="vertical" id="viewAdd">
+				<Button title="追加" onClick="addTodo" />
+			</View>
 		</View>
 	</Window>
 </Alloy>

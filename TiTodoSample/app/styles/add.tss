@@ -1,4 +1,3 @@
-
 '#container' : {
   backgroundColor:'white'
 }
@@ -10,6 +9,22 @@
 
 'TextArea':{
 	width:'70%',
-	height:'30%',
+	height:'50%',
 	borderColor:'black'
+}
+
+'#viewTitle':{
+	height:'20%'
+}
+
+'#viewDetail':{
+	height:'20%'
+}
+
+'#viewDeadline':{
+	height:'40%'
+}
+
+'#viewAdd':{
+	height:'20%'
 }
